@@ -1,4 +1,4 @@
-import { constants } from "../../utils/constants";
+import { types } from "../actions/types";
 import faker from "faker";
 
 const initialState = {
@@ -80,28 +80,28 @@ const initialState = {
 
 const manager = (state = initialState, action) => {
   switch (action.type) {
-    case constants.ADD_TITULAR:
+    case types.ADD_TITULAR:
       return {
         ...state,
         titulars: [...state.titulars, action.player],
         players: state.players.filter((p) => p.id !== action.player.id),
       };
 
-    case constants.REMOVE_TITULAR:
+    case types.REMOVE_TITULAR:
       return {
         ...state,
         titulars: state.titulars.filter((p) => p.id !== action.player.id),
         players: [...state.players, action.player],
       };
 
-    case constants.ADD_SUBSTITUTE:
+    case types.ADD_SUBSTITUTE:
       return {
         ...state,
         substitutes: [...state.substitutes, action.player],
         players: state.players.filter((p) => p.id !== action.player.id),
       };
 
-    case constants.REMOVE_SUBSTITUTE:
+    case types.REMOVE_SUBSTITUTE:
       return {
         ...state,
         substitutes: state.substitutes.filter((p) => p.id !== action.player.id),

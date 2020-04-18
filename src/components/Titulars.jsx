@@ -22,7 +22,7 @@ const Titulars = ({ titulars, removeTitular }) => (
 );
 
 const mapStateToProps = (state) => ({
-  titulars: state.titulars,
+  titulars: state.manager.titulars,
 });
 
 const mapDispatchToProps = (dispatch) => ({

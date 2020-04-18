@@ -1,21 +1,21 @@
-import { constants } from "../../utils/constants";
+import { types } from "./types";
 
 export const addTitular = (player) => ({
-  type: constants.ADD_TITULAR,
+  type: types.ADD_TITULAR,
   player,
 });
 
 export const removeTitular = (player) => ({
-  type: constants.REMOVE_TITULAR,
+  type: types.REMOVE_TITULAR,
   player,
 });
 
 export const addSubstitute = (player) => ({
-  type: constants.ADD_SUBSTITUTE,
+  type: types.ADD_SUBSTITUTE,
   player,
 });
 
 export const removeSubstitute = (player) => ({
-  type: constants.REMOVE_SUBSTITUTE,
+  type: types.REMOVE_SUBSTITUTE,
   player,
 });

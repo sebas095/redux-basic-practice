@@ -20,7 +20,7 @@ const Substitutes = ({ substitutes, removeSubstitute }) => (
 );
 
 const mapStateToProps = (state) => ({
-  substitutes: state.substitutes,
+  substitutes: state.manager.substitutes,
 });
 
 const mapDispatchToProps = (dispatch) => ({

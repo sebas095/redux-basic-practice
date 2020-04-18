@@ -67,7 +67,7 @@ const Players = ({ players, addTitular, addSubstitute }) => {
 };
 
 const mapStateToProps = (state) => ({
-  players: state.players,
+  players: state.manager.players,
 });
 
 const mapDispatchToProps = (dispatch) => ({
