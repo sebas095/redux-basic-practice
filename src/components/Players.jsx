@@ -1,9 +1,11 @@
 import React, { useEffect, createRef } from "react";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { addTitular, addSubstitute } from "../redux/actions/manager";
 
-const Players = ({ players, addTitular, addSubstitute }) => {
+const Players = () => {
   const playerGrid = createRef();
+  const players = useSelector((store) => store.manager.players);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setScrollContainer();
@@ -55,8 +57,12 @@ const Players = ({ players, addTitular, addSubstitute }) => {
               <img src={player.img} alt={player.name} />
               <h3>{player.name}</h3>
               <div>
-                <button onClick={() => addTitular(player)}>Titular</button>
-                <button onClick={() => addSubstitute(player)}>Suplente</button>
+                <button onClick={() => dispatch(addTitular(player))}>
+                  Titular
+                </button>
+                <button onClick={() => dispatch(addSubstitute(player))}>
+                  Suplente
+                </button>
               </div>
             </article>
           ))}
@@ -66,13 +72,4 @@ const Players = ({ players, addTitular, addSubstitute }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  players: state.manager.players,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  addTitular: (player) => dispatch(addTitular(player)),
-  addSubstitute: (player) => dispatch(addSubstitute(player)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Players);
+export default Players;
